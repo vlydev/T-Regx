@@ -15,11 +15,8 @@ PHP regular expressions brought up to modern standards.
 [See documentation](https://phpregex.org/) at [phpregex.org](https://phpregex.org/).
 
 [![last commit](https://img.shields.io/github/last-commit/t-regx/T-Regx/develop.svg)](https://github.com/t-regx/T-Regx/commits/develop)
-[![commit activity](https://img.shields.io/github/commit-activity/y/t-regx/T-Regx.svg)](https://github.com/t-regx/T-Regx)
-[![Commits since](https://img.shields.io/github/commits-since/t-regx/T-Regx/0.41.5/develop.svg)](https://github.com/t-regx/T-Regx/compare/0.41.5...develop)
 [![Unit tests](https://img.shields.io/badge/Unit%20tests-3867-brightgreen.svg)](https://github.com/t-regx/T-Regx)
 [![Unit tests](https://img.shields.io/badge/Assertions-6079-brightgreen.svg)](https://github.com/t-regx/T-Regx)
-[![Code Climate](https://img.shields.io/codeclimate/maintainability/t-regx/T-Regx.svg)](https://codeclimate.com/github/t-regx/T-Regx)
 [![FQN](https://img.shields.io/badge/FQN-used-blue.svg)](https://github.com/kelunik/fqn-check)
 [![PRs Welcome](https://img.shields.io/badge/PR-welcome-brightgreen.svg?style=popout)](http://makeapullrequest.com)
 [![Gitter](https://badges.gitter.im/T-Regx/community.svg)](https://gitter.im/T-Regx/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
