@@ -3,8 +3,8 @@ namespace Test\Functional\SafeRegex;
 
 use PHPUnit\Framework\TestCase;
 use Test\Utils\Runtime\CausesWarnings;
-use TRegx\DataProvider\DataProviders;
 use TRegx\Exception\MalformedPatternException;
+use TRegx\PhpUnit\DataProviders\DataProvider;
 use TRegx\SafeRegex\preg;
 
 class PatternExceptionsTest extends TestCase
@@ -25,48 +25,48 @@ class PatternExceptionsTest extends TestCase
         $function($argument);
     }
 
-    function malformedPatternExceptionFunctions(): array
+    function malformedPatternExceptionFunctions(): DataProvider
     {
-        return DataProviders::cross([
+        return DataProvider::cross([
             'match'                  => [
                 function (string $pattern) {
                     preg::match($pattern, '');
-                }
+                },
             ],
             'match_all'              => [
                 function (string $pattern) {
                     preg::match_all($pattern, '');
-                }
+                },
             ],
             'replace'                => [
                 function (string $pattern) {
                     preg::replace($pattern, '', '');
-                }
+                },
             ],
             'filter'                 => [
                 function (string $pattern) {
                     preg::filter($pattern, '', '');
-                }
+                },
             ],
             'replace_callback_array' => [
                 function (string $pattern) {
                     preg::replace_callback_array([$pattern => 'strToUpper'], '');
-                }
+                },
             ],
             'replace_callback'       => [
                 function (string $pattern) {
                     preg::replace_callback($pattern, 'strToUpper', '');
-                }
+                },
             ],
             'split'                  => [
                 function (string $pattern) {
                     preg::split($pattern, '');
-                }
+                },
             ],
             'grep'                   => [
                 function (string $pattern) {
                     preg::grep($pattern, []);
-                }
+                },
             ],
         ], \Test\DataProviders::invalidPregPatterns());
     }

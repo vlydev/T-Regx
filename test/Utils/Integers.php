@@ -2,7 +2,7 @@
 namespace Test\Utils;
 
 use Test\Utils\Agnostic\ArchitectureDependant;
-use TRegx\DataProvider\CrossDataProviders;
+use TRegx\PhpUnit\DataProviders\DataProvider;
 
 trait Integers
 {
@@ -35,7 +35,7 @@ trait Integers
             ['cdefgh', 748102337, 36],
             ['ijklmo', 1121265024, 36],
             ['pqrstu', 1556621490, 36],
-            ['vwxyz', 53605115, 36]
+            ['vwxyz', 53605115, 36],
         ];
         $zeros = [
             ['00', 0, 2],
@@ -58,11 +58,11 @@ trait Integers
         return \array_merge($allDigits, $zeros, $standardValues);
     }
 
-    public function integersMalformed(): array
+    public function integersMalformed(): DataProvider
     {
         $bases = [[2], [10], [16], [36]];
         $malformedValues = [[''], ['.'], [','], [' '], ['--1'], ['1-1'], ['+2'], ['-'], ["\n1"]];
-        return CrossDataProviders::cross($bases, $malformedValues);
+        return DataProvider::cross($bases, $malformedValues);
     }
 
     public function integerBoundryValuesCaseInsensitive(): array
