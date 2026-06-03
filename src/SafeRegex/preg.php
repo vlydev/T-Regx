@@ -27,7 +27,7 @@ class preg
      * @deprecated
      * Perform a regular expression match
      */
-    public static function match(string $pattern, string $subject, array &$matches = null, int $flags = 0, int $offset = 0): int
+    public static function match(string $pattern, string $subject, ?array &$matches = null, int $flags = 0, int $offset = 0): int
     {
         $pr = Bug::fix($pattern);
         return Guard::invoke('preg_match', $pr, static function () use ($pr, $subject, &$matches, $flags, $offset) {
@@ -58,7 +58,7 @@ class preg
      * @psalm-pure Output is only dependent on input parameters values
      * @deprecated
      */
-    public static function match_all(string $pattern, string $subject, array &$matches = null, $flags = \PREG_PATTERN_ORDER, int $offset = 0): int
+    public static function match_all(string $pattern, string $subject, ?array &$matches = null, $flags = \PREG_PATTERN_ORDER, int $offset = 0): int
     {
         $pr = Bug::fix($pattern);
         return Guard::invoke('preg_match_all', $pr, static function () use ($pr, $subject, &$matches, $flags, $offset) {
@@ -84,7 +84,7 @@ class preg
      * @psalm-pure Output is only dependent on input parameters values
      * @deprecated
      */
-    public static function replace($pattern, $replacement, $subject, int $limit = -1, int &$count = null)
+    public static function replace($pattern, $replacement, $subject, int $limit = -1, ?int &$count = null)
     {
         $pr = Bug::fix($pattern);
         return Guard::invoke('preg_replace', $pr, static function () use ($pr, $replacement, $subject, $limit, &$count) {
@@ -110,7 +110,7 @@ class preg
      * @psalm-pure Output is only dependent on input parameters values
      * @deprecated
      */
-    public static function replace_callback($pattern, callable $callback, $subject, int $limit = -1, int &$count = null, int $flags = 0)
+    public static function replace_callback($pattern, callable $callback, $subject, int $limit = -1, ?int &$count = null, int $flags = 0)
     {
         $pr = Bug::fix($pattern);
         return Guard::invoke('preg_replace_callback', $pr, static function () use ($pr, $callback, $subject, $limit, &$count, $flags) {
@@ -140,7 +140,7 @@ class preg
      * @psalm-pure Output is only dependent on input parameters values
      * @deprecated
      */
-    public static function replace_callback_array(array $patterns_and_callbacks, $subject, int $limit = -1, int &$count = null)
+    public static function replace_callback_array(array $patterns_and_callbacks, $subject, int $limit = -1, ?int &$count = null)
     {
         $prs = Bug::fixArrayKeys($patterns_and_callbacks);
         return Guard::invoke('preg_replace_callback_array', \array_keys($prs), static function () use ($prs, $subject, $limit, &$count) {
@@ -182,7 +182,7 @@ class preg
      * @psalm-pure Output is only dependent on input parameters values
      * @deprecated
      */
-    public static function filter($pattern, $replacement, $subject, int $limit = -1, int &$count = null)
+    public static function filter($pattern, $replacement, $subject, int $limit = -1, ?int &$count = null)
     {
         $pr = Bug::fix($pattern);
         return Guard::invoke('preg_filter', $pr, static function () use ($pr, $replacement, $subject, $limit, &$count) {
@@ -241,7 +241,7 @@ class preg
      * @psalm-pure Output is only dependent on input parameters values
      * @deprecated
      */
-    public static function quote(string $string, string $delimiter = null): string
+    public static function quote(string $string, ?string $delimiter = null): string
     {
         if (!\is_null($delimiter) && \strLen($delimiter) !== 1) {
             throw new InvalidArgumentException('Delimiter must be one alpha-numeric character');
