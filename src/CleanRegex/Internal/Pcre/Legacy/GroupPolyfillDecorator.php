@@ -21,7 +21,7 @@ class GroupPolyfillDecorator implements IRawMatchOffset
     /** @var GroupAware */
     private $groupAware;
 
-    public function __construct(FalseNegative $match, MatchAllFactory $allFactory, int $newMatchIndex, GroupAware $groupAware = null)
+    public function __construct(FalseNegative $match, MatchAllFactory $allFactory, int $newMatchIndex, ?GroupAware $groupAware = null)
     {
         $this->falseMatch = $match;
         $this->trueMatch = null;
